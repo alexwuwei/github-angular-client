@@ -24,8 +24,8 @@
           <p>{{profctrl.profile.following}}</p>
         </section>
       </section>
-      <section class="repos-container" ng-controller="RepoController as repoctrl" ng-init="repoctrl.getRepos()" ng-cloak>
-        <section class="repo-instance" ng-repeat="repo in repoctrl.repos" ng-cloak>
+      <section class="repos-container" ng-controller="RepoController as repoctrl" ng-init="profctrol.getRepos()" ng-cloak>
+        <article class="repo-instance", ng-repeat="repo in repoctrl.repos" ng-cloak>
           <li class="info-line"><span>Name:</span>{{repoctrl.repos.name}}</li><br>
           <li class="info-line"><span>URL:</span><a href="{{repoctrl.repos.html_url}}">{{repoctrl.repos.html_url}}</a></li><br>
           <li class="info-line"><span>Name:</span>{{repoctrl.repos.name}}</li><br>
@@ -33,7 +33,7 @@
           <li class="info-line"><span>Created at:</span>{{repoctrl.repos.created_at}}</li><br>
           <li class="info-line"><span>Forks Count:</span>{{repoctrl.repos.forks_count}}</li><br>
 
-        </section>
+        </article>
 
       </section>
     </main>
