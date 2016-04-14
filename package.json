@@ -1,0 +1,31 @@
+{
+  "name": "github-angular-client",
+  "version": "1.0.0",
+  "description": "A recreation of the github UI using angular",
+  "main": "client-server.js",
+  "dependencies": {
+    "del": "^2.2.0",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.0",
+    "css-loader": "^0.23.1",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-webpack": "^1.5.0",
+    "style-loader": "^0.13.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexwuwei/github-angular-client.git"
+  },
+  "author": "Hugo A Guerra <guerrahugoa@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexwuwei/github-angular-client/issues"
+  },
+  "homepage": "https://github.com/alexwuwei/github-angular-client#readme"
+}
