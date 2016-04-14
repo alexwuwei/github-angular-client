@@ -2,11 +2,10 @@
 
 const gulp = require('gulp');
 const lint = require('gulp-eslint');
-const mocha = require('gulp-mocha');
 const webpack = require('gulp-webpack');
 const del = require('del');
 
-let paths = ['*.js', 'models/*.js', 'routes/*.js', 'test/*.js', 'public/js/*.js'];
+let paths = ['*.js', 'test/*.js', 'public/js/*.js', 'public/js/profile/*.js', 'public/js/repos/*.js'];
 
 gulp.task('eslint', () => {
   gulp.src(paths)
@@ -14,10 +13,6 @@ gulp.task('eslint', () => {
   .pipe(lint.format());
 });
 
-gulp.task('test', () => {
-  gulp.src(__dirname + '/test/*.js')
-  .pipe(mocha({reporter: 'nyan'}));
-});
 
 gulp.task('del-build', () => {
   return del([
