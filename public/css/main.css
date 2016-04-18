@@ -1,6 +1,8 @@
+
+
 span {
-  font-family: roboto;
-  font-size: 22px;
+  font-family: lora;
+  font-size: 1.214em;
 }
 
 input {
@@ -14,12 +16,52 @@ p {
 
 .header {
   height: 70px;
-  background-color: #578ff0;
+  background-color: #03ACB2;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  color: white;
+  color: #fbf7f2;
   box-shadow: 1px 1px 0px #888888;
+}
+
+.info-line {
+  list-style-type: none;
+  font-family: roboto;
+  font-size: 1em;
+}
+
+.info-line > span {
+  margin-right: 1%;
+  font-family: lora;
+}
+
+#repo-instance {
+  padding-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  background: #FF690A;
+  border-radius: 2px;
+  display: block;
+  /*float: left;*/
+  /*height: 300px;*/
+  margin: 1%;
+  /*position: relative;*/
+  width: 70%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.2s ease-in-out;
+  border-radius: 20%;
+}
+
+.repos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
+
+#repo-instance:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border-radius: 20%;
 }
 
 .container {
@@ -29,26 +71,90 @@ p {
   right:0px;
   bottom:0px;
   overflow-y: scroll;
+
 }
 
 .section-container {
 
 }
 
+#profile-image {
+  width: 25%;
+  height: auto;
+}
+
 .info-container {
-  display: flex;
-  flex-direction: row;
-  padding-top: 1%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /*background-color: #0BB212;*/
+    color: #03ACB2;
+
 }
 
 .stars-followers-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   padding-left: 3%;
   padding-top: 1%;
+  margin-left: 5%;
+  /*background: url(http://s.cdpn.io/1202/background_skyline_frankfurt_1.jpg); */
+  width: 60%;
+
 }
 
+.image-container {
+  max-width: 60%;
+  height: auto;
+
+}
 img {
-  max-width: 30%;
-  max-height: 10%;
+  border-radius: 40%;
+  border: 3px solid #FF690A;
+  width: 100%;
+
+}
+
+.public-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*width: 30%;*/
+}
+
+@media (min-width: 600px) {
+  .repos-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #repo-instance {
+    padding-top: 2%;
+    padding-left: 2%;
+    background: #FF690A;
+    border-radius: 2px;
+    display: block;
+    float: left;
+    /*height: 300px;*/
+    margin: 1rem;
+    /*position: relative;*/
+    max-width: 40%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.2s ease-in-out;
+    word-wrap: break-word;
+    border-radius: 5%;
+  }
+
+  .info-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 1%;
+    border: 1px dotted purple;
+    flex-wrap: wrap;
+    /*position: fixed;*/
+
+  }
 }
