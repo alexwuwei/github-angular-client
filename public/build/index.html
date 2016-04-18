@@ -13,7 +13,9 @@
     </header>
     <main class="container">
       <section class="info-container" ng-controller="ProfileController as profctrl" ng-init="profctrl.getProfile()" ng-cloak>
-        <img class="animated pulse" id="profile-image" src={{profctrl.profile.avatar_url}}/>
+        <div class="image-container">
+          <img class="animated pulse" id="profile-image" src={{profctrl.profile.avatar_url}}/>
+        </div>
         <section class="stars-followers-container">
           <aside class="public-details">
             <span>Starred Repos</span>
@@ -28,7 +30,7 @@
         </section>
       </section>
       <section class="repos-container" ng-controller="RepoController as repoctrl" ng-init="repoctrl.getRepos()" ng-cloak>
-        <section class="repo-instance" ng-repeat="repo in repoctrl.repos" ng-cloak>
+        <section class="animated fadeIn" id="repo-instance" ng-repeat="repo in repoctrl.repos" ng-cloak>
           <li class="info-line"><span>Name:</span>{{repo.name}}</li><br>
           <li class="info-line"><span>URL:</span><a href="{{repoctrl.repos.html_url}}">{{repo.html_url}}</a></li><br>
           <li class="info-line"><span>Name:</span>{{repo.name}}</li><br>
