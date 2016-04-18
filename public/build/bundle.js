@@ -31163,7 +31163,7 @@
 
 
 	// module
-	exports.push([module.id, "span {\n  font-family: roboto;\n  font-size: 22px;\n}\n\ninput {\n  font-family: roboto;\n}\n\np {\n  font-family: lora;\n}\n\n\n.header {\n  height: 70px;\n  background-color: #578ff0;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  color: white;\n  box-shadow: 1px 1px 0px #888888;\n}\n\n.container {\n  position: absolute;\n  top: 71px;\n  left:0px;\n  right:0px;\n  bottom:0px;\n  overflow-y: scroll;\n}\n\n.section-container {\n\n}\n\n.info-container {\n  display: flex;\n  flex-direction: row;\n  padding-top: 1%;\n}\n\n.stars-followers-container {\n  display: flex;\n  flex-direction: column;\n  padding-left: 3%;\n  padding-top: 1%;\n}\n\nimg {\n  max-width: 30%;\n  max-height: 10%;\n}\n", ""]);
+	exports.push([module.id, "\n\nspan {\n  font-family: lora;\n  font-size: 1.214em;\n}\n\ninput {\n  font-family: roboto;\n}\n\np {\n  font-family: lora;\n}\n\n\n.header {\n  height: 70px;\n  background-color: #03ACB2;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  color: #fbf7f2;\n  box-shadow: 1px 1px 0px #888888;\n}\n\n.info-line {\n  list-style-type: none;\n  font-family: roboto;\n  font-size: 1em;\n}\n\n.info-line > span {\n  margin-right: 1%;\n  font-family: lora;\n}\n\n#repo-instance {\n  padding-top: 2%;\n  padding-left: 2%;\n  padding-right: 2%;\n  background: #FF690A;\n  border-radius: 2px;\n  display: block;\n  /*float: left;*/\n  /*height: 300px;*/\n  margin: 1%;\n  /*position: relative;*/\n  width: 70%;\n  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\n  transition: all 0.2s ease-in-out;\n  border-radius: 20%;\n}\n\n.repos-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow: auto;\n}\n\n#repo-instance:hover {\n  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);\n  border-radius: 20%;\n}\n\n.container {\n  position: absolute;\n  top: 71px;\n  left:0px;\n  right:0px;\n  bottom:0px;\n  overflow-y: scroll;\n\n}\n\n.section-container {\n\n}\n\n#profile-image {\n  width: 25%;\n  height: auto;\n}\n\n.info-container {\n\n    display: flex;\n    flex-direction: column;\n    justify-content: space-around;\n    /*background-color: #0BB212;*/\n    color: #03ACB2;\n\n}\n\n.stars-followers-container {\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n  padding-left: 3%;\n  padding-top: 1%;\n  margin-left: 5%;\n  /*background: url(http://s.cdpn.io/1202/background_skyline_frankfurt_1.jpg); */\n  width: 60%;\n\n}\n\n.image-container {\n  max-width: 60%;\n  height: auto;\n\n}\nimg {\n  border-radius: 40%;\n  border: 3px solid #FF690A;\n  width: 100%;\n\n}\n\n.public-details {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  /*width: 30%;*/\n}\n\n@media (min-width: 600px) {\n  .repos-container {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n  }\n\n  #repo-instance {\n    padding-top: 2%;\n    padding-left: 2%;\n    background: #FF690A;\n    border-radius: 2px;\n    display: block;\n    float: left;\n    /*height: 300px;*/\n    margin: 1rem;\n    /*position: relative;*/\n    max-width: 40%;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\n    transition: all 0.2s ease-in-out;\n    word-wrap: break-word;\n    border-radius: 5%;\n  }\n\n  .info-container {\n    display: flex;\n    flex-direction: row;\n    padding-top: 1%;\n    border: 1px dotted purple;\n    flex-wrap: wrap;\n    /*position: fixed;*/\n\n  }\n}\n", ""]);
 
 	// exports
 
@@ -31263,12 +31263,19 @@
 	  function RepoController($http) {
 	    const reposRoute = 'https://api.github.com/users/alexwuwei/repos';
 	    this.repos = [];
+	    this.stargazers = 0;
 
 	    this.getRepos = function () {
 	      $http.get(reposRoute)
 	      .then((res) => {
 	        console.log(res);
 	        this.repos = res.data;
+	        this.repos.forEach((repo) => {
+	          if (repo.stargazers_count) {
+	            console.log(this.stargazers);
+	            this.stargazers += repo.stargazers_count;
+	          }
+	        })
 	      }, function(err) {
 	        console.log('error in getting repos');
 	      })
